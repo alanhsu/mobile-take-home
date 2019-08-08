@@ -10,8 +10,6 @@ import Foundation
 import UIKit
 
 class CharacterCell: UITableViewCell {
-    
-    @IBOutlet weak var characterImageView: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var statusLabel: UILabel!
     
@@ -25,14 +23,10 @@ class CharacterCell: UITableViewCell {
     
     func updateUI() {
         guard let viewModel = viewModel else { return }
-        if let imageURL = viewModel.imageURL {
-            let imageData = try! Data(contentsOf: imageURL, options: .mappedIfSafe)
-            characterImageView.image = UIImage(data: imageData)
-        }
-        
         nameLabel.text = viewModel.name
-        
         let status = CharacterManager.sharedInstance.status(of: viewModel.character)
-        statusLabel.text = "Status: " + status
+        let statusColor: UIColor = status == "Dead" ? .red : .black
+        statusLabel.text = status
+        statusLabel.textColor = statusColor
     }
 }

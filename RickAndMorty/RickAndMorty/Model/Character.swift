@@ -16,4 +16,16 @@ class Character: NSObject, Codable {
     var type: String
     var gender: String
     var image: String
+    var origin: Origin
+    var location: Location
+}
+
+class Origin: Codable {
+    var name: String
+    var url: String
+}
+
+class Location: Codable {
+    var name: String
+    var url: String
 }

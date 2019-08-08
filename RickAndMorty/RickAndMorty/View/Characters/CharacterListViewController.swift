@@ -20,10 +20,16 @@ class CharacterListViewController: UITableViewController {
     var charactersObservation: NSKeyValueObservation?
     
     override func viewDidLoad() {
+        super.viewDidLoad()
         tableView.register(UINib(nibName: Constants.characterCellNib, bundle: nil), forCellReuseIdentifier: Constants.characterCellReuseId)
         
         addObserver()
         viewModel?.fetchCharacters()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        tableView.reloadData()
     }
     
     func addObserver() {
@@ -53,50 +59,16 @@ extension CharacterListViewController {
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 300
+        return 120
     }
 }
 
 extension CharacterListViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        guard let character = viewModel?.character(at: indexPath) else { return }
-        presentKillOption(with: character)
-    }
-}
-
-extension CharacterListViewController {
-    func presentKillOption(with character: Character) {
-        let alert = UIAlertController(title: "Kill " + character.name, message: "Are you sure you want to do this?", preferredStyle: .alert)
-        
-        let killAction = UIAlertAction(title: "I have no regard for human/alien life", style: .destructive) { (action) in
-            self.kill(character)
-        }
-        
-        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { (action) in
-            // no-op
-        }
-        
-        alert.addAction(killAction)
-        alert.addAction(cancelAction)
-        
-        present(alert, animated: true, completion: nil)
-    }
-    
-    func presentUnkillableAlert(_ character: Character) {
-        let alert = UIAlertController(title: character.name + "is already dead", message: nil, preferredStyle: .alert)
-        let cancelAction = UIAlertAction(title: "Okay", style: .cancel) { (action) in
-            // no-op
-        }
-        alert.addAction(cancelAction)
-        present(alert, animated: true, completion: nil)
-    }
-    
-    func kill(_ character: Character) {
-        if character.status == "Dead" {
-            presentUnkillableAlert(character)
-        } else {
-            CharacterManager.sharedInstance.kill(character)
-            tableView.reloadData()
-        }
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        guard let character = viewModel?.character(at: indexPath),
+            let viewController = storyboard.instantiateViewController(withIdentifier: "CharacterDetailViewController") as? CharacterDetailViewController else { return }
+        viewController.viewModel = CharacterDetailViewControllerViewModel(character: character)
+        show(viewController, sender: nil)
     }
 }

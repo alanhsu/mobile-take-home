@@ -8,6 +8,10 @@
 
 import Foundation
 
+/*
+ Ideally this class would sync with something like UserDefaults so killed characters will persist
+ */
+
 class CharacterManager {
     static let sharedInstance = CharacterManager()
     

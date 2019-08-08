@@ -28,6 +28,8 @@
 		B6AE13E522FBBD0800456C5B /* CharacterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6AE13E422FBBD0800456C5B /* CharacterCell.swift */; };
 		B6AE13E722FBBD3900456C5B /* CharacterCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6AE13E622FBBD3900456C5B /* CharacterCellViewModel.swift */; };
 		B6AE13E922FBCFAF00456C5B /* CharacterManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6AE13E822FBCFAF00456C5B /* CharacterManager.swift */; };
+		B6AE13EC22FBD6E600456C5B /* CharacterDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6AE13EB22FBD6E600456C5B /* CharacterDetailViewController.swift */; };
+		B6AE13EE22FBD7E700456C5B /* CharacterDetailViewControllerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6AE13ED22FBD7E700456C5B /* CharacterDetailViewControllerViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -54,6 +56,8 @@
 		B6AE13E422FBBD0800456C5B /* CharacterCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterCell.swift; sourceTree = "<group>"; };
 		B6AE13E622FBBD3900456C5B /* CharacterCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterCellViewModel.swift; sourceTree = "<group>"; };
 		B6AE13E822FBCFAF00456C5B /* CharacterManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterManager.swift; sourceTree = "<group>"; };
+		B6AE13EB22FBD6E600456C5B /* CharacterDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterDetailViewController.swift; sourceTree = "<group>"; };
+		B6AE13ED22FBD7E700456C5B /* CharacterDetailViewControllerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterDetailViewControllerViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,6 +109,7 @@
 			children = (
 				B664B65422F9151E00C22984 /* Main */,
 				B6AE13DD22FBB73C00456C5B /* Characters */,
+				B6AE13EA22FBD6CE00456C5B /* Character Detail */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -125,6 +130,7 @@
 				B664B66322F926AF00C22984 /* EpisodeListViewControllerViewModel.swift */,
 				B6AE13E022FBB79000456C5B /* CharacterlistViewControllerViewModel.swift */,
 				B6AE13E622FBBD3900456C5B /* CharacterCellViewModel.swift */,
+				B6AE13ED22FBD7E700456C5B /* CharacterDetailViewControllerViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -159,6 +165,15 @@
 			);
 			name = Characters;
 			path = RickAndMorty/View/Characters;
+			sourceTree = SOURCE_ROOT;
+		};
+		B6AE13EA22FBD6CE00456C5B /* Character Detail */ = {
+			isa = PBXGroup;
+			children = (
+				B6AE13EB22FBD6E600456C5B /* CharacterDetailViewController.swift */,
+			);
+			name = "Character Detail";
+			path = "RickAndMorty/View/Character Detail";
 			sourceTree = SOURCE_ROOT;
 		};
 /* End PBXGroup section */
@@ -248,6 +263,8 @@
 				B6AE13E122FBB79000456C5B /* CharacterlistViewControllerViewModel.swift in Sources */,
 				B664B64422F9146900C22984 /* RickAndMorty.xcdatamodeld in Sources */,
 				B664B66022F91DAE00C22984 /* Character.swift in Sources */,
+				B6AE13EE22FBD7E700456C5B /* CharacterDetailViewControllerViewModel.swift in Sources */,
+				B6AE13EC22FBD6E600456C5B /* CharacterDetailViewController.swift in Sources */,
 				B6AE13E722FBBD3900456C5B /* CharacterCellViewModel.swift in Sources */,
 				B664B66422F926AF00C22984 /* EpisodeListViewControllerViewModel.swift in Sources */,
 			);
