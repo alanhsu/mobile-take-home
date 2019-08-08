@@ -47,3 +47,17 @@ extension EpisodeListViewController {
         return cell
     }
 }
+
+extension EpisodeListViewController {
+   override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    let storyboard = UIStoryboard(name: "Main", bundle: nil)
+    
+    guard let episode = viewModel.episode(at: indexPath),
+         let characterListViewController = storyboard.instantiateViewController(withIdentifier: "CharacterListViewController") as? CharacterListViewController else { return }
+    
+    let charactersViewModel = CharacterlistViewControllerViewModel(charactersURLs: episode.characters)
+    characterListViewController.viewModel = charactersViewModel
+    
+    show(characterListViewController, sender: self)
+    }
+}

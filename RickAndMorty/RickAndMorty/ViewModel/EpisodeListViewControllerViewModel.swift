@@ -28,4 +28,9 @@ class EpisodeListViewControllerViewModel: NSObject {
         guard episodes.indices.contains(indexPath.row) else { return nil }
         return episodes[indexPath.row].name
     }
+    
+    func episode(at indexPath: IndexPath) -> Episode? {
+        guard episodes.indices.contains(indexPath.row) else { return nil }
+        return episodes[indexPath.row]
+    }
 }

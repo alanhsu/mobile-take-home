@@ -22,6 +22,12 @@
 		B664B66422F926AF00C22984 /* EpisodeListViewControllerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B664B66322F926AF00C22984 /* EpisodeListViewControllerViewModel.swift */; };
 		B664B66622F92A5500C22984 /* EpisodeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B664B66522F92A5500C22984 /* EpisodeCell.swift */; };
 		B664B66822F92A6100C22984 /* EpisodeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B664B66722F92A6100C22984 /* EpisodeCell.xib */; };
+		B6AE13DF22FBB75200456C5B /* CharacterListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6AE13DE22FBB75200456C5B /* CharacterListViewController.swift */; };
+		B6AE13E122FBB79000456C5B /* CharacterlistViewControllerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6AE13E022FBB79000456C5B /* CharacterlistViewControllerViewModel.swift */; };
+		B6AE13E322FBBC1600456C5B /* CharacterCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B6AE13E222FBBC1600456C5B /* CharacterCell.xib */; };
+		B6AE13E522FBBD0800456C5B /* CharacterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6AE13E422FBBD0800456C5B /* CharacterCell.swift */; };
+		B6AE13E722FBBD3900456C5B /* CharacterCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6AE13E622FBBD3900456C5B /* CharacterCellViewModel.swift */; };
+		B6AE13E922FBCFAF00456C5B /* CharacterManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6AE13E822FBCFAF00456C5B /* CharacterManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +48,12 @@
 		B664B66322F926AF00C22984 /* EpisodeListViewControllerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodeListViewControllerViewModel.swift; sourceTree = "<group>"; };
 		B664B66522F92A5500C22984 /* EpisodeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodeCell.swift; sourceTree = "<group>"; };
 		B664B66722F92A6100C22984 /* EpisodeCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EpisodeCell.xib; sourceTree = "<group>"; };
+		B6AE13DE22FBB75200456C5B /* CharacterListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterListViewController.swift; sourceTree = "<group>"; };
+		B6AE13E022FBB79000456C5B /* CharacterlistViewControllerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterlistViewControllerViewModel.swift; sourceTree = "<group>"; };
+		B6AE13E222FBBC1600456C5B /* CharacterCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CharacterCell.xib; sourceTree = "<group>"; };
+		B6AE13E422FBBD0800456C5B /* CharacterCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterCell.swift; sourceTree = "<group>"; };
+		B6AE13E622FBBD3900456C5B /* CharacterCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterCellViewModel.swift; sourceTree = "<group>"; };
+		B6AE13E822FBCFAF00456C5B /* CharacterManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,6 +104,7 @@
 			isa = PBXGroup;
 			children = (
 				B664B65422F9151E00C22984 /* Main */,
+				B6AE13DD22FBB73C00456C5B /* Characters */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -110,6 +123,8 @@
 			isa = PBXGroup;
 			children = (
 				B664B66322F926AF00C22984 /* EpisodeListViewControllerViewModel.swift */,
+				B6AE13E022FBB79000456C5B /* CharacterlistViewControllerViewModel.swift */,
+				B6AE13E622FBBD3900456C5B /* CharacterCellViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -120,6 +135,7 @@
 				B664B65722F9158D00C22984 /* APIManager.swift */,
 				B664B65922F91CA500C22984 /* EpisodeService.swift */,
 				B664B65B22F91CAF00C22984 /* CharacterService.swift */,
+				B6AE13E822FBCFAF00456C5B /* CharacterManager.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -133,6 +149,17 @@
 			);
 			path = Main;
 			sourceTree = "<group>";
+		};
+		B6AE13DD22FBB73C00456C5B /* Characters */ = {
+			isa = PBXGroup;
+			children = (
+				B6AE13DE22FBB75200456C5B /* CharacterListViewController.swift */,
+				B6AE13E422FBBD0800456C5B /* CharacterCell.swift */,
+				B6AE13E222FBBC1600456C5B /* CharacterCell.xib */,
+			);
+			name = Characters;
+			path = RickAndMorty/View/Characters;
+			sourceTree = SOURCE_ROOT;
 		};
 /* End PBXGroup section */
 
@@ -194,6 +221,7 @@
 			files = (
 				B664B64922F9146C00C22984 /* LaunchScreen.storyboard in Resources */,
 				B664B66822F92A6100C22984 /* EpisodeCell.xib in Resources */,
+				B6AE13E322FBBC1600456C5B /* CharacterCell.xib in Resources */,
 				B664B64622F9146C00C22984 /* Assets.xcassets in Resources */,
 				B664B64122F9146900C22984 /* Main.storyboard in Resources */,
 			);
@@ -209,13 +237,18 @@
 				B664B65822F9158D00C22984 /* APIManager.swift in Sources */,
 				B664B65622F9151E00C22984 /* EpisodeListViewController.swift in Sources */,
 				B664B65E22F91DA600C22984 /* Episode.swift in Sources */,
+				B6AE13E522FBBD0800456C5B /* CharacterCell.swift in Sources */,
 				B664B66622F92A5500C22984 /* EpisodeCell.swift in Sources */,
+				B6AE13DF22FBB75200456C5B /* CharacterListViewController.swift in Sources */,
 				B664B63C22F9146900C22984 /* AppDelegate.swift in Sources */,
 				B664B65C22F91CAF00C22984 /* CharacterService.swift in Sources */,
 				B664B65A22F91CA500C22984 /* EpisodeService.swift in Sources */,
+				B6AE13E922FBCFAF00456C5B /* CharacterManager.swift in Sources */,
 				B664B66222F920FB00C22984 /* EpisodeResults.swift in Sources */,
+				B6AE13E122FBB79000456C5B /* CharacterlistViewControllerViewModel.swift in Sources */,
 				B664B64422F9146900C22984 /* RickAndMorty.xcdatamodeld in Sources */,
 				B664B66022F91DAE00C22984 /* Character.swift in Sources */,
+				B6AE13E722FBBD3900456C5B /* CharacterCellViewModel.swift in Sources */,
 				B664B66422F926AF00C22984 /* EpisodeListViewControllerViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
