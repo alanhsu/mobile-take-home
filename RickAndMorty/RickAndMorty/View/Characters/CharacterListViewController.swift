@@ -17,7 +17,7 @@ enum CharacterListViewControllerConstants {
 class CharacterListViewController: UITableViewController {
     typealias Constants = CharacterListViewControllerConstants
     var viewModel: CharacterlistViewControllerViewModel?
-    var charactersObservation: NSKeyValueObservation?
+    var loadObservation: NSKeyValueObservation?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,12 +29,14 @@ class CharacterListViewController: UITableViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        viewModel?.sortCharacters()
         tableView.reloadData()
     }
     
     func addObserver() {
         guard let viewModel = viewModel else { return }
-        charactersObservation = viewModel.observe(\.characters, options: [.new, .old], changeHandler: { (_, _) in
+        loadObservation = viewModel.observe(\.loadStatus, options: [.new, .old], changeHandler: { (viewModel, change) in
+            guard viewModel.loadStatus == .loaded else { return }
             DispatchQueue.main.async {
                 self.tableView.reloadData()
             }
@@ -43,13 +45,21 @@ class CharacterListViewController: UITableViewController {
 }
 
 extension CharacterListViewController {
+    override func numberOfSections(in tableView: UITableView) -> Int {
+        return 2
+    }
+    
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return section == 0 ? "Alive" : "Dead"
+    }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return viewModel?.characters.count ?? 0
+        return section == 0 ? (viewModel?.aliveCharacters.count ?? 0) : (viewModel?.deadCharacters.count ?? 0)
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let viewModel = viewModel, let character = viewModel.character(at: indexPath) else {
+        guard let viewModel = viewModel,
+            let character = (indexPath.section == 0) ? viewModel.aliveCharacter(at: indexPath) : viewModel.deadCharacters(at: indexPath) else {
             fatalError()
         }
 
@@ -66,7 +76,7 @@ extension CharacterListViewController {
 extension CharacterListViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        guard let character = viewModel?.character(at: indexPath),
+        guard let character = (indexPath.section == 0) ? viewModel?.aliveCharacter(at: indexPath) : viewModel?.deadCharacters(at: indexPath),
             let viewController = storyboard.instantiateViewController(withIdentifier: "CharacterDetailViewController") as? CharacterDetailViewController else { return }
         viewController.viewModel = CharacterDetailViewControllerViewModel(character: character)
         show(viewController, sender: nil)

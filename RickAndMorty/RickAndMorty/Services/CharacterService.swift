@@ -20,6 +20,7 @@ final class CharacterService: APIManager {
             }
             
             let jsonDecoder = JSONDecoder()
+            jsonDecoder.dateDecodingStrategy = .formatted(DateFormatter.iso8601Full)
             do {
                 let character = try jsonDecoder.decode(Character.self, from: data)
                 completion(character, nil)
@@ -29,4 +30,15 @@ final class CharacterService: APIManager {
             }
         }
     }
+}
+
+extension DateFormatter {
+    static let iso8601Full: DateFormatter = {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZZZZZ"
+        formatter.calendar = Calendar(identifier: .iso8601)
+        formatter.timeZone = TimeZone(secondsFromGMT: 0)
+        formatter.locale = Locale(identifier: "en_US_POSIX")
+        return formatter
+    }()
 }

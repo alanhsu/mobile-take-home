@@ -18,6 +18,7 @@ class Character: NSObject, Codable {
     var image: String
     var origin: Origin
     var location: Location
+    var created: Date
 }
 
 class Origin: Codable {
