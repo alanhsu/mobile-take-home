@@ -24,6 +24,7 @@ class CharacterDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         updateUI()
+        // To accomodate smaller iphones this page should probably be inside a scroll view
     }
     
     func updateUI() {

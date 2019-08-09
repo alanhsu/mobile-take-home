@@ -14,7 +14,6 @@ import Foundation
 
 class CharacterManager {
     static let sharedInstance = CharacterManager()
-    
     private(set) var killedCharacterIds: Set<Int> = Set([])
     
     func kill(_ character: Character) {

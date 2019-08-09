@@ -9,10 +9,8 @@
 import Foundation
 
 class CharacterlistViewControllerViewModel: NSObject {
-    
     @objc dynamic var characters: [Character] = []
-    
-    private var characterURLs:  [String]
+    private var characterURLs: [String]
     private var characterIds: [String]
     private let characterService = CharacterService()
     private var fetchedCharacters: [Character] = []
@@ -20,6 +18,10 @@ class CharacterlistViewControllerViewModel: NSObject {
     init(charactersURLs: [String]) {
         self.characterURLs = charactersURLs
         
+        /*
+         Ideally the API would return a list of characterIds and not a list of endpoints to call,
+         since the /character path is already available
+         */
         var characterIdsToFetch: [String] = []
         characterURLs.forEach { (url) in
             if let id = url.components(separatedBy: "/").last {

@@ -21,8 +21,8 @@ class CharacterListViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        title = "Characters"
         tableView.register(UINib(nibName: Constants.characterCellNib, bundle: nil), forCellReuseIdentifier: Constants.characterCellReuseId)
-        
         addObserver()
         viewModel?.fetchCharacters()
     }

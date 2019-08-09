@@ -20,6 +20,7 @@ class EpisodeListViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        title = "Episodes"
         tableView.register(UINib(nibName: Constants.episodeCellNib, bundle: nil), forCellReuseIdentifier: Constants.episodeCellReuseId)
         addObservers()
         viewModel.fetch()
